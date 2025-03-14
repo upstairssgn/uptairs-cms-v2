@@ -18,7 +18,7 @@
     "sections": {
       "displayName": "Section",
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "section.section"
     }
   }

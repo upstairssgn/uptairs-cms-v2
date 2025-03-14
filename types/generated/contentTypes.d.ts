@@ -518,7 +518,7 @@ export interface ApiExplorationExploration extends Schema.SingleType {
     > &
       Attribute.Private;
     publishedAt: Attribute.DateTime;
-    sections: Attribute.Component<'section.section'>;
+    sections: Attribute.Component<'section.section', true>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::exploration.exploration',
