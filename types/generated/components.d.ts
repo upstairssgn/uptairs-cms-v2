@@ -67,6 +67,14 @@ export interface SpaceSpace extends Schema.Component {
   };
 }
 
+export interface StoryStory extends Schema.Component {
+  collectionName: 'components_story_stories';
+  info: {
+    displayName: 'Story';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -76,6 +84,7 @@ declare module '@strapi/types' {
       'hero.hero': HeroHero;
       'introduction.introduction': IntroductionIntroduction;
       'space.space': SpaceSpace;
+      'story.story': StoryStory;
     }
   }
 }

@@ -11126,6 +11126,11 @@ strapi-plugin-qrcode-generator@^0.1.1:
     react-router-dom "^6.18.0"
     release-it "^16.2.1"
 
+strapi-plugin-transformer@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-transformer/-/strapi-plugin-transformer-3.1.2.tgz#c9676fb369baf009a7f321a44258609e52aef8aa"
+  integrity sha512-aRjWqrZJ2QcsSDqOE27xzzmDG1c+yg8o9yUb5zFhR94+4zbGxTpLQndelkWtzNaLv5s2HhExx1JyCn/F9GZPpQ==
+
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"
   resolved "https://registry.npmjs.org/stream-chain/-/stream-chain-2.2.5.tgz"

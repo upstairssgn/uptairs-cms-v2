@@ -362,6 +362,137 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactUsContactUs extends Schema.SingleType {
+  collectionName: 'contact_uses';
+  info: {
+    displayName: 'Contact Us';
+    pluralName: 'contact-uses';
+    singularName: 'contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    block: Attribute.Component<'block.block'>;
+    contactImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    hero: Attribute.Component<'hero.hero'>;
+    publishedAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactContact extends Schema.SingleType {
+  collectionName: 'contacts';
+  info: {
+    description: '';
+    displayName: 'Contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    adminEmail: Attribute.Text;
+    bookingUrl: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    facebookUrl: Attribute.Text;
+    intagramUrl: Attribute.Text;
+    marketingEmail: Attribute.Text;
+    primaryEmail: Attribute.Text;
+    publishedAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExplorationExploration extends Schema.SingleType {
+  collectionName: 'explorations';
+  info: {
+    displayName: 'Exploration';
+    pluralName: 'explorations';
+    singularName: 'exploration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::exploration.exploration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    publishedAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::exploration.exploration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    url: Attribute.Text;
+  };
+}
+
+export interface ApiGalleryGallery extends Schema.SingleType {
+  collectionName: 'galleries';
+  info: {
+    description: '';
+    displayName: 'Gallery';
+    pluralName: 'galleries';
+    singularName: 'gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    hero: Attribute.Component<'hero.hero'>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    introduction: Attribute.Blocks;
+    publishedAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Schema.SingleType {
   collectionName: 'homes';
   info: {
@@ -517,6 +648,86 @@ export interface ApiLocationLocation extends Schema.SingleType {
           localized: true;
         };
       }>;
+  };
+}
+
+export interface ApiMenuMenu extends Schema.SingleType {
+  collectionName: 'menus';
+  info: {
+    displayName: 'Menu';
+    pluralName: 'menus';
+    singularName: 'menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    description: Attribute.Component<'block.block'>;
+    hero: Attribute.Component<'hero.hero'>;
+    ingredients: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Attribute.DateTime;
+    signatureDishes: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    tastingMenu: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    tastingMenuImages: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    wineMenu: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    wineMenuImages: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
+export interface ApiOurStoryOurStory extends Schema.SingleType {
+  collectionName: 'our_stories';
+  info: {
+    description: '';
+    displayName: 'Our Story';
+    pluralName: 'our-stories';
+    singularName: 'our-story';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    career: Attribute.Component<'block.block'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-story.our-story',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    headChef: Attribute.Component<'block.block'>;
+    hero: Attribute.Component<'hero.hero'>;
+    opening: Attribute.Blocks;
+    publishedAt: Attribute.DateTime;
+    stories: Attribute.Component<'block.block', true>;
+    team: Attribute.Component<'block.block', true>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::our-story.our-story',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -956,8 +1167,14 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::contact.contact': ApiContactContact;
+      'api::exploration.exploration': ApiExplorationExploration;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::home.home': ApiHomeHome;
       'api::location.location': ApiLocationLocation;
+      'api::menu.menu': ApiMenuMenu;
+      'api::our-story.our-story': ApiOurStoryOurStory;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

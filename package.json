@@ -24,6 +24,7 @@
     "sharp": "^0.33.5",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-qrcode-generator": "^0.1.1",
+    "strapi-plugin-transformer": "^3.1.2",
     "styled-components": "5.3.3"
   },
   "author": {
