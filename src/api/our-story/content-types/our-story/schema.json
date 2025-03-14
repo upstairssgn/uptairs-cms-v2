@@ -10,35 +10,69 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "hero.hero"
+      "component": "hero.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "headChef": {
       "type": "component",
       "repeatable": false,
-      "component": "block.block"
+      "component": "block.block",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "team": {
       "type": "component",
       "repeatable": true,
-      "component": "block.block"
+      "component": "block.block",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "opening": {
-      "type": "blocks"
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "stories": {
       "type": "component",
       "repeatable": true,
-      "component": "block.block"
+      "component": "block.block",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "career": {
       "type": "component",
       "repeatable": false,
-      "component": "block.block"
+      "component": "block.block",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

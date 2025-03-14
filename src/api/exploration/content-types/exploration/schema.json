@@ -4,7 +4,8 @@
   "info": {
     "singularName": "exploration",
     "pluralName": "explorations",
-    "displayName": "Exploration"
+    "displayName": "Exploration",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,12 @@
   "attributes": {
     "url": {
       "type": "text"
+    },
+    "sections": {
+      "displayName": "Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.section"
     }
   }
 }

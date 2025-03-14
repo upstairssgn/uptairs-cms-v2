@@ -56,6 +56,35 @@ export interface IntroductionIntroduction extends Schema.Component {
   };
 }
 
+export interface ItemItem extends Schema.Component {
+  collectionName: 'components_item_items';
+  info: {
+    description: '';
+    displayName: 'Item';
+  };
+  attributes: {
+    engParagraph: Attribute.Blocks;
+    heading: Attribute.Text;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    subheading: Attribute.Text;
+    vieParagraph: Attribute.Blocks;
+  };
+}
+
+export interface SectionSection extends Schema.Component {
+  collectionName: 'components_section_sections';
+  info: {
+    description: '';
+    displayName: 'Section';
+  };
+  attributes: {
+    engTitle: Attribute.Text;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    items: Attribute.Component<'item.item', true>;
+    title: Attribute.Text;
+  };
+}
+
 export interface SpaceSpace extends Schema.Component {
   collectionName: 'components_space_spaces';
   info: {
@@ -83,6 +112,8 @@ declare module '@strapi/types' {
       'gallery.gallery': GalleryGallery;
       'hero.hero': HeroHero;
       'introduction.introduction': IntroductionIntroduction;
+      'item.item': ItemItem;
+      'section.section': SectionSection;
       'space.space': SpaceSpace;
       'story.story': StoryStory;
     }

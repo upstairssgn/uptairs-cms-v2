@@ -365,6 +365,7 @@ export interface AdminUser extends Schema.CollectionType {
 export interface ApiContactUsContactUs extends Schema.SingleType {
   collectionName: 'contact_uses';
   info: {
+    description: '';
     displayName: 'Contact Us';
     pluralName: 'contact-uses';
     singularName: 'contact-us';
@@ -372,9 +373,24 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    block: Attribute.Component<'block.block'>;
-    contactImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    block: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contactImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::contact-us.contact-us',
@@ -382,7 +398,18 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    hero: Attribute.Component<'hero.hero'>;
+    hero: Attribute.Component<'hero.hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToMany',
+      'api::contact-us.contact-us'
+    >;
     publishedAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -405,9 +432,24 @@ export interface ApiContactContact extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    adminEmail: Attribute.Text;
-    bookingUrl: Attribute.Text;
+    adminEmail: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bookingUrl: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::contact.contact',
@@ -415,10 +457,36 @@ export interface ApiContactContact extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    facebookUrl: Attribute.Text;
-    intagramUrl: Attribute.Text;
-    marketingEmail: Attribute.Text;
-    primaryEmail: Attribute.Text;
+    facebookUrl: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intagramUrl: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::contact.contact',
+      'oneToMany',
+      'api::contact.contact'
+    >;
+    marketingEmail: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    primaryEmail: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -433,6 +501,7 @@ export interface ApiContactContact extends Schema.SingleType {
 export interface ApiExplorationExploration extends Schema.SingleType {
   collectionName: 'explorations';
   info: {
+    description: '';
     displayName: 'Exploration';
     pluralName: 'explorations';
     singularName: 'exploration';
@@ -449,6 +518,7 @@ export interface ApiExplorationExploration extends Schema.SingleType {
     > &
       Attribute.Private;
     publishedAt: Attribute.DateTime;
+    sections: Attribute.Component<'section.section'>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::exploration.exploration',
@@ -471,6 +541,11 @@ export interface ApiGalleryGallery extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -479,9 +554,30 @@ export interface ApiGalleryGallery extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    hero: Attribute.Component<'hero.hero'>;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    introduction: Attribute.Blocks;
+    hero: Attribute.Component<'hero.hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    introduction: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToMany',
+      'api::gallery.gallery'
+    >;
     publishedAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -654,6 +750,7 @@ export interface ApiLocationLocation extends Schema.SingleType {
 export interface ApiMenuMenu extends Schema.SingleType {
   collectionName: 'menus';
   info: {
+    description: '';
     displayName: 'Menu';
     pluralName: 'menus';
     singularName: 'menu';
@@ -661,37 +758,88 @@ export interface ApiMenuMenu extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    description: Attribute.Component<'block.block'>;
-    hero: Attribute.Component<'hero.hero'>;
+    description: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hero: Attribute.Component<'hero.hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     ingredients: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::menu.menu',
+      'oneToMany',
+      'api::menu.menu'
     >;
     publishedAt: Attribute.DateTime;
     signatureDishes: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     tastingMenu: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     tastingMenuImages: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    wineMenu: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    wineMenu: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     wineMenuImages: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -706,8 +854,18 @@ export interface ApiOurStoryOurStory extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    career: Attribute.Component<'block.block'>;
+    career: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::our-story.our-story',
@@ -715,12 +873,43 @@ export interface ApiOurStoryOurStory extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    headChef: Attribute.Component<'block.block'>;
-    hero: Attribute.Component<'hero.hero'>;
-    opening: Attribute.Blocks;
+    headChef: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hero: Attribute.Component<'hero.hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::our-story.our-story',
+      'oneToMany',
+      'api::our-story.our-story'
+    >;
+    opening: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Attribute.DateTime;
-    stories: Attribute.Component<'block.block', true>;
-    team: Attribute.Component<'block.block', true>;
+    stories: Attribute.Component<'block.block', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    team: Attribute.Component<'block.block', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::our-story.our-story',
