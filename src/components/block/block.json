@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_block_blocks",
+  "info": {
+    "displayName": "Block"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "subheading": {
+      "type": "text"
+    },
+    "paragraph": {
+      "type": "blocks"
+    },
+    "images": {
+      "displayName": "CustomImage",
+      "type": "component",
+      "repeatable": true,
+      "component": "custom-image.custom-image"
+    }
+  }
+}

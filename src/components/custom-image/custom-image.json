@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_custom_image_custom_images",
+  "info": {
+    "displayName": "CustomImage"
+  },
+  "options": {},
+  "attributes": {
+    "caption": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

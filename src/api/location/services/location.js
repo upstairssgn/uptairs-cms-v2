@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * exploration service
+ * location service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::exploration.exploration');
+module.exports = createCoreService('api::location.location');

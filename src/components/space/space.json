@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_space_spaces",
+  "info": {
+    "displayName": "Space"
+  },
+  "options": {},
+  "attributes": {
+    "upperImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "lowerImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

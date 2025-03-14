@@ -362,33 +362,161 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiExplorationExploration extends Schema.SingleType {
-  collectionName: 'explorations';
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
   info: {
-    displayName: 'Exploration';
-    pluralName: 'explorations';
-    singularName: 'exploration';
+    description: '';
+    displayName: 'Home';
+    pluralName: 'homes';
+    singularName: 'home';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    first: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fourth: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    gallery: Attribute.Component<'custom-image.custom-image', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    headChef: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hero: Attribute.Component<'hero.hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    introduction: Attribute.Component<'introduction.introduction'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::home.home'
+    >;
+    publishedAt: Attribute.DateTime;
+    second: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    space: Attribute.Component<'space.space'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    third: Attribute.Component<'block.block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLocationLocation extends Schema.SingleType {
+  collectionName: 'locations';
+  info: {
+    description: '';
+    displayName: 'Location';
+    pluralName: 'locations';
+    singularName: 'location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::exploration.exploration',
+      'api::location.location',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
+    googleMapUrl: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::location.location',
+      'oneToMany',
+      'api::location.location'
+    >;
+    phoneNumber: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
-      'api::exploration.exploration',
+      'api::location.location',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
-    url: Attribute.Text;
+    workingHours: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -828,7 +956,8 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::exploration.exploration': ApiExplorationExploration;
+      'api::home.home': ApiHomeHome;
+      'api::location.location': ApiLocationLocation;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
