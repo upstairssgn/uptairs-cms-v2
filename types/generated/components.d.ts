@@ -78,10 +78,10 @@ export interface SectionSection extends Schema.Component {
     displayName: 'Section';
   };
   attributes: {
-    engTitle: Attribute.Text;
+    engTitle: Attribute.Blocks;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     items: Attribute.Component<'item.item', true>;
-    title: Attribute.Text;
+    title: Attribute.Blocks;
   };
 }
 

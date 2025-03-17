@@ -1,13 +1,31 @@
 module.exports = ({ env }) => ({
-  'transformer': {
+  "preview-button": {
+    config: {
+      contentTypes: [
+        {
+          uid: "api::home.home",
+          draft: {
+            url: "http://localhost:3000/home/{locale}",
+          },
+          published: {
+            url: "http://localhost:3000/home/vi",
+            query: {
+              locale: "{locale}",
+            },
+          },
+        },
+      ],
+    },
+  },
+  transformer: {
     enabled: true,
     config: {
-        prefix: '/api/',
-        responseTransforms: {
-          removeAttributesKey: true,
-          removeDataKey: true,
-        }
-     }
+      prefix: "/api/",
+      responseTransforms: {
+        removeAttributesKey: true,
+        removeDataKey: true,
+      },
+    },
   },
   "strapi-plugin-populate-deep": {
     config: {
