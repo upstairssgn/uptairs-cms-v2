@@ -7,9 +7,9 @@ env_variables:
   DATABASE_NAME: 'postgres'
   DATABASE_USER: 'postgres'
   DATABASE_PASSWORD: 'Up@123451'
-  INSTANCE_CONNECTION_NAME: 'calcium-ember-452706-a9:asia-southeast1:upstairssgn-db'
-  GCS_BUCKET_NAME: 'upstairssgn-bucket'
+  INSTANCE_CONNECTION_NAME: 'pioneering-axe-455807-m6:asia-southeast1:upstairs-db'
+  GCS_BUCKET_NAME: 'upstairs-bucket'
   GCS_BASE_PATH: ''
 
 beta_settings:
-  cloud_sql_instances: 'calcium-ember-452706-a9:asia-southeast1:upstairssgn-db'
+  cloud_sql_instances: 'pioneering-axe-455807-m6:asia-southeast1:upstairs-db'
