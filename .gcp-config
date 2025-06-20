@@ -1,0 +1,56 @@
+gcloud projects add-iam-policy-binding peak-elevator-463211-i3 \
+  --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com \
+  --role=roles/cloudsql.client
+
+gcloud projects add-iam-policy-binding peak-elevator-463211-i3 \
+  --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com \
+  --role=roles/cloudsql.editor
+
+gcloud projects add-iam-policy-binding peak-elevator-463211-i3 \
+  --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com
+  --role=roles/storage.objectAdmin
+
+gcloud projects add-iam-policy-binding peak-elevator-463211-i3 \
+  --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com \
+  --role=roles/appengine.deployer
+
+gcloud projects add-iam-policy-binding peak-elevator-463211-i3 \
+  --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com \
+  --role=roles/logging.admin
+
+
+## Create a Cloud SQL PostgreSQL instance
+gcloud sql instances create INSTANCE_NAME \
+  --database-version=POSTGRESQL_16 \
+  --tier=db-custom-2-8192 \
+  --region=us-central1 \
+  --availability-type=zonal \
+  --storage-type=SSD \
+  --storage-size=10GB \
+  --network-throughput=500MB \
+  --maintenance-window-day=1 \
+  --maintenance-window-hour=2 \
+  --backup-start-time=02:00 \
+  --activation-policy=ALWAYS \
+  --location-preference=us-central1 \
+  --failover-replica-name=INSTANCE_NAME-replica \
+  --root-password=
+
+gcloud projects add-iam-policy-binding eak-elevator-463211-i3 \
+    --member=serviceAccount:SERVICE_ACCOUNT \
+    --role=roles/cloudsql.editor
+
+
+
+gsutil mb -p peak-elevator-463211-i3 -l us-central1 gs://upstairs-bucket-v2
+gsutil uniformbucketlevelaccess set on gs://upstairs-bucket-v2
+
+gsutil acl ch -u AllUsers:R gs://upstairs-bucket-v2
+
+gcloud storage buckets add-iam-policy-binding gs://upstairs-bucket-v2 \
+    --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com \
+    --role=roles/storage.objectAdmin
+
+gcloud storage buckets add-iam-policy-binding gs://upstairs-bucket-v2 \
+    --member=serviceAccount:peak-elevator-463211-i3@appspot.gserviceaccount.com \
+    --role=roles/storage.objectCreator
