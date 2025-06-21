@@ -1,0 +1,45 @@
+server {
+    listen 443 ssl;
+    server_name api.upstairssgn.com;
+    ssl_certificate /etc/letsencrypt/live/api.upstairssgn.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/api.upstairssgn.com/privkey.pem; # managed by Certbot
+
+
+    location / {
+        proxy_pass http://localhost:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /uploads/ {
+        root /root/uptairs-cms-v2/public;
+
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' '*' always;
+    }
+
+}
+
+# Optional: redirect HTTP �[m~F~R HTTPS
+server {
+    listen 80;
+    server_name api.upstairssgn.com;
+    return 301 https://$host$request_uri;
+}
+server {
+    if ($host = api.upstairssgn.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    listen [::]:80;
+    server_name api.upstairssgn.com;
+    return 404; # managed by Certbot
+
+
+}
