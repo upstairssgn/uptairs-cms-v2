@@ -15,7 +15,15 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: ['*'], // hoặc domain thật
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization'],
+      credentials: true,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',

@@ -54,4 +54,18 @@ module.exports = ({ env }) => ({
   //     },
   //   },
   // },
+  upload: {
+    config: {
+      provider: 'local',
+      providerOptions: {
+        sizeLimit: 10 * 1024 * 1024,
+      },
+      baseUrl: env('APP_URL', 'http://localhost:1337'),    
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
+      },
+    },
+  },
 });
