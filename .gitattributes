@@ -1,2 +1,2 @@
-data/upstairs-data.tar.gz filter=lfs diff=lfs merge=lfs -text
 data/upstairs-cms-data.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
