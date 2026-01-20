@@ -58,7 +58,7 @@ module.exports = ({ env }) => ({
     config: {
       provider: 'local',
       providerOptions: {
-        sizeLimit: 10 * 1024 * 1024,
+        sizeLimit: 500 * 1024 * 1024,
       },
       baseUrl: env('APP_URL', 'http://localhost:1337'),    
       actionOptions: {

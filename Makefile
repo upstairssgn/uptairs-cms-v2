@@ -18,4 +18,4 @@ export:
 	yarn strapi export -f ./data/upstairs-data --no-encrypt
 
 import :
-	yarn strapi import -f ./data/upstairs-data.tar.gz --force --exclude files
+	yarn strapi import -f ./data/upstairs-data-03-12-2025.tar.gz --force
