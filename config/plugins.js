@@ -40,6 +40,10 @@ module.exports = ({ env }) => ({
           uid: "api::exploration.exploration",
           targetField: "url",
         },
+        {
+          uid: "api::inspiration.inspiration",
+          targetField: "url",
+        },
       ],
     },
   },

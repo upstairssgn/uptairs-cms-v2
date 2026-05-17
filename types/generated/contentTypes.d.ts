@@ -676,6 +676,77 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
 }
 
+export interface ApiInspirationInspiration extends Schema.SingleType {
+  collectionName: 'inspirations';
+  info: {
+    description: '';
+    displayName: 'Inspiration';
+    pluralName: 'inspirations';
+    singularName: 'inspiration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    backgroundImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inspiration.inspiration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    headline: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::inspiration.inspiration',
+      'oneToMany',
+      'api::inspiration.inspiration'
+    >;
+    publishedAt: Attribute.DateTime;
+    subhead: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::inspiration.inspiration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    url: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiLocationLocation extends Schema.SingleType {
   collectionName: 'locations';
   info: {
@@ -1361,6 +1432,7 @@ declare module '@strapi/types' {
       'api::exploration.exploration': ApiExplorationExploration;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::home.home': ApiHomeHome;
+      'api::inspiration.inspiration': ApiInspirationInspiration;
       'api::location.location': ApiLocationLocation;
       'api::menu.menu': ApiMenuMenu;
       'api::our-story.our-story': ApiOurStoryOurStory;
