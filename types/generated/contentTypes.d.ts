@@ -818,6 +818,38 @@ export interface ApiLocationLocation extends Schema.SingleType {
   };
 }
 
+export interface ApiMarketingPopupMarketingPopup extends Schema.SingleType {
+  collectionName: 'marketing_popups';
+  info: {
+    displayName: 'Marketing Popup';
+    pluralName: 'marketing-popups';
+    singularName: 'marketing-popup';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::marketing-popup.marketing-popup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isEnabled: Attribute.Boolean;
+    publishedAt: Attribute.DateTime;
+    targetUrl: Attribute.Text;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::marketing-popup.marketing-popup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuMenu extends Schema.SingleType {
   collectionName: 'menus';
   info: {
@@ -1434,6 +1466,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::inspiration.inspiration': ApiInspirationInspiration;
       'api::location.location': ApiLocationLocation;
+      'api::marketing-popup.marketing-popup': ApiMarketingPopupMarketingPopup;
       'api::menu.menu': ApiMenuMenu;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'plugin::content-releases.release': PluginContentReleasesRelease;

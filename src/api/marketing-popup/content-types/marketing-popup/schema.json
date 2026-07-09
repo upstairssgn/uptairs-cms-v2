@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "marketing_popups",
+  "info": {
+    "singularName": "marketing-popup",
+    "pluralName": "marketing-popups",
+    "displayName": "Marketing Popup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isEnabled": {
+      "type": "boolean"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "targetUrl": {
+      "type": "text"
+    }
+  }
+}
